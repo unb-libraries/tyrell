@@ -1,0 +1,33 @@
+api:
+  host: '127.0.0.1'
+  port: 5001
+  path: '/summarize/v1'
+  llm:
+    model:
+      type: "llama"
+      repo: "TheBloke/Inkbot-13B-8k-0.2-GGUF"
+      filename: "inkbot-13b-8k-0.2.Q5_K_M.gguf"
+      tokenizer_repo: "Tostino/Inkbot-13B-8k-0.2"
+      max_response_tokens: 2048
+      n_batch: 4096
+      n_ctx: 8192
+      rope_freq_base: 0.0
+      rope_freq_scale: 0.5
+      n_gpu_layers: -1
+      repeat_penalty: 1.1
+      temperature: 0.8
+      top_k: 40
+      min_p: 0.5
+      top_p: 0.95
+      verbose: True
+  chunker:
+    max_chunk_token_length: 7064
+  max_final_summary_context_tokens: 7064
+  data_dir: '/home/core/llm/chatbot/data'
+  gpu_lock_file: 'RTX_4090_1.lock'
+client:
+  timeout: 1800
+  uri: 'http://127.0.0.1:3000/tyrell/api/v1'
+  user_agent: 'Tyrell/0.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+  pub_key: ''
+  priv_key: ''

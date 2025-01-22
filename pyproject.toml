@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "tyrell"
+version = "0.1.0"
+description = ""
+authors = ["UNB Libraries <libsystems@unb.ca>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+filelock = "3.16.1"
+flask = "3.1.0"
+huggingface-hub = "0.27.1"
+langchain = "0.3.14"
+langchain-community = "0.3.14"
+llama-cpp-python = "0.3.6"
+protobuf = "5.29.3"
+psutil = "5.9.8"
+pyyaml = "6.0.2"
+requests = "2.32.3"
+sentence_transformers = "2.7.0"
+waitress = "3.0.2"
+
+[tool.poetry.scripts]
+"api:start" = "tyrell.interfaces.api:start"
+"summarize" = "tyrell.interfaces.client:summarize"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
