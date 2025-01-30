@@ -36,6 +36,15 @@ def default():
     """Default endpoint."""
     return "Endpoint Disabled."
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Health check endpoint."""
+    response = {
+        "status": "healthy",
+        "message": "Service is running"
+    }
+    return Response(json_dumper(response, pretty=False), status=200, mimetype='application/json')
+
 @app.route(get_api_path(), methods=['POST'])
 def summarize():
     """Summarize a document."""
